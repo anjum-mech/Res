@@ -32,8 +32,8 @@ class MainActivity : AppCompatActivity() {
         val searchItem = menu?.findItem(R.id.menu_search)
         if(searchItem != null){
             val searchView = searchItem?.actionView as SearchView
-            val editText = searchView.findViewById<EditText>(android.widget.R.id.src_text)
-            editText.hint = "Search here...."
+            val editText = searchView.findViewById<EditText>(R.id.menu_search)
+            editText.hint
 
 
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
