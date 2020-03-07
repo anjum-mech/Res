@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.country_child.view.*
@@ -31,10 +32,8 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main,menu)
         val searchItem = menu?.findItem(R.id.menu_search)
         if(searchItem != null){
-            val searchView = searchItem?.actionView as SearchView
-            val editText = searchView.findViewById<EditText>(R.id.menu_search)
-            editText.hint
-
+            val searchView = MenuItemCompat.getActionView(searchItem) as SearchView
+            val editText = searchView.findViewById(androidx.appcompat.R.id.search_src_text) as EditText
 
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(query: String?): Boolean {
